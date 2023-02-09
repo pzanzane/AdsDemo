@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.AdsDemo.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.AdsDemo.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llJioAds"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+    <Button
+        android:id="@+id/btnVideoJioAds"
+        android:layout_width="300dp"
+        android:layout_height="65dp"
+        android:text="Video"
+        android:layout_gravity="center_horizontal"
+
+        />
+
+    <Button
+        android:id="@+id/btnNativeBannerJioAds"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:text="Native Banner"
+        android:layout_gravity="center_horizontal"
+
+        />
+
+    <Button
+        android:id="@+id/btnInterstitialJioAds"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:text="Interstitial"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <Button
+        android:id="@+id/btnRewardedVideoJioAds"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:text="Rewarded Video"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <Button
+        android:id="@+id/btnInstreamVideoJioAds"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:text="Instream Video"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <Button
+        android:id="@+id/btnCustomInstreamVideoJioAds"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:text="Custom Instream Video"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <Button
+        android:id="@+id/btnCustomInstreaAudioJioAds"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:text="Instream Audio"
+        android:layout_gravity="center_horizontal"
+        />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llGoogleAds"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+
+        <Button
+            android:id="@+id/btnBannerGoogleAds"
+            android:layout_width="300dp"
+            android:layout_height="65dp"
+            android:text="Banner"
+            android:layout_gravity="center_horizontal"
+
+            />
+
+        <Button
+            android:id="@+id/btnNativeGoogleAds"
+            android:layout_width="300dp"
+            android:layout_height="75dp"
+            android:text="Native"
+            android:layout_gravity="center_horizontal"
+
+            />
+
+        <Button
+            android:id="@+id/btnInterstitialGoogleAds"
+            android:layout_width="300dp"
+            android:layout_height="75dp"
+            android:text="Interstitial"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <Button
+            android:id="@+id/btnRewardedVideoGoogleAds"
+            android:layout_width="300dp"
+            android:layout_height="75dp"
+            android:text="Rewarded Video"
+            android:layout_gravity="center_horizontal"
+            />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

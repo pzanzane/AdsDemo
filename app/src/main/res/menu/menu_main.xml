@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.jio.sample.MainActivity">
+
+    <item
+        android:id="@+id/action_jio"
+        android:orderInCategory="100"
+        android:title="@string/jio_ads"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_google"
+        android:orderInCategory="100"
+        android:title="@string/google_ads"
+        app:showAsAction="never" />
+</menu>

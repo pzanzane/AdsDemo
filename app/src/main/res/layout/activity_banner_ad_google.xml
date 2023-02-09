@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VideoAdActivity"
+    android:orientation="vertical"
+
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.AdsDemo.AppBarOverlay"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.AdsDemo.PopupOverlay"
+            />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        >
+    <Button
+        android:id="@+id/btnBanner"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_weight="1"
+        android:text="Banner"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        />
+    <Button
+        android:id="@+id/btnLargeBanner"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_weight="1"
+        android:text="Large Banner"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        >
+    <Button
+        android:id="@+id/btnMediumRectangle"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:text="Medium Rectangle"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        />
+
+    <Button
+        android:id="@+id/btnFullBanner"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:text="Full Banner"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        >
+    <Button
+        android:id="@+id/btnLeaderboard"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_weight="1"
+        android:text="Leaderboard"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        />
+
+    <Button
+        android:id="@+id/btnSmartBanner"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_weight="1"
+        android:text="Smart Banner"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        />
+    </LinearLayout>
+
+
+</LinearLayout>
