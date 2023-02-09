@@ -66,7 +66,7 @@ public class VideoAdActivity extends BaseActivity {
             @Override
             public void onAdClosed(@Nullable JioAdView jioAdView, boolean b, boolean b1) {
                 Toast.makeText(VideoAdActivity.this, "onAdClosed", Toast.LENGTH_SHORT).show();
-
+                resumeVideo();
             }
 
             @Override
