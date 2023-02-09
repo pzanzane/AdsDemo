@@ -34,7 +34,19 @@ public class RewardedVideoActivity extends BaseActivity  {
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        dynamicInterstitialAd();
+    }
+
+    @Override
+    protected void onPostCreate(@androidx.annotation.Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        startVideo(binding.videoView);
+        delayed(this::dynamicInterstitialAd);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        stopVideo();
     }
 
     private void dynamicInterstitialAd() {
@@ -48,11 +60,13 @@ public class RewardedVideoActivity extends BaseActivity  {
             public void onAdFailedToLoad(@Nullable JioAdView jioAdView, @Nullable JioAdError jioAdError) {
                 dialog.dismiss();
                 Toast.makeText(RewardedVideoActivity.this, "onAdFailedToLoad : "+jioAdError.getErrorDescription(), Toast.LENGTH_SHORT).show();
+                resumeVideo();
             }
 
             @Override
             public void onAdClosed(@Nullable JioAdView jioAdView, boolean b, boolean b1) {
                 Toast.makeText(RewardedVideoActivity.this, "onAdClosed : ", Toast.LENGTH_SHORT).show();
+                resumeVideo();
             }
 
             @Override

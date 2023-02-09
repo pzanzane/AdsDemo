@@ -1,22 +1,16 @@
 package com.jio.sample;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.jio.jioads.adinterfaces.JioAdError;
 import com.jio.jioads.adinterfaces.JioAdListener;
 import com.jio.jioads.adinterfaces.JioAdView;
 import com.jio.jioads.adinterfaces.JioAds;
-import com.jio.sample.databinding.ActivityMainBinding;
 import com.jio.sample.databinding.ActivityVideoBinding;
-import com.jio.sample.util.VideoPlayer;
-import com.jio.unity.plugin.android.JioAdsPluginListener;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -24,14 +18,10 @@ public class VideoAdActivity extends BaseActivity {
 
     private ActivityVideoBinding binding;
     private JioAdView jioAdView=null;
-    private VideoPlayer videoPlayer = null;
-    private Handler handler = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        handler = new Handler();
 
         JioAds.Companion.getInstance().setLogLevel(JioAds.LogLevel.DEBUG);
 
@@ -44,26 +34,23 @@ public class VideoAdActivity extends BaseActivity {
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        videoPlayer = new VideoPlayer(this, binding.videoView);
-
-        handler.postDelayed(this::videoAd, SHOW_AD_AFTER_MS);
     }
 
     @Override
     protected void onPostCreate(@androidx.annotation.Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        videoPlayer.start();
+        startVideo(binding.videoView);
+        delayed(this::videoAd);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        videoPlayer.stop();
+        stopVideo();
     }
 
     private void videoAd() {
-        videoPlayer.pause();
+        pauseVideo();
         dialog.show();
         jioAdView = new JioAdView (this,"ocl0xur8",
         JioAdView.AD_TYPE.INSTREAM_VIDEO);
@@ -73,7 +60,7 @@ public class VideoAdActivity extends BaseActivity {
             public void onAdFailedToLoad(@Nullable JioAdView jioAdView, @Nullable JioAdError jioAdError) {
                 dialog.dismiss();
                 Toast.makeText(VideoAdActivity.this, "onAdFailedToLoad : "+jioAdError.getErrorDescription(), Toast.LENGTH_SHORT).show();
-                videoPlayer.start();
+                resumeVideo();
             }
 
             @Override

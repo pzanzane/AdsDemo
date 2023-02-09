@@ -33,10 +33,23 @@ public class InstreamAudioActivity extends BaseActivity  {
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        instreamAudioAd();
+    }
+
+    @Override
+    protected void onPostCreate(@androidx.annotation.Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        startVideo(binding.videoView);
+        delayed(this::instreamAudioAd);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        stopVideo();
     }
 
     private void instreamAudioAd() {
+        pauseVideo();
         dialog.show();
         jioAdView = new JioAdView(this, "e8lbrnyk",
                 JioAdView.AD_TYPE.INSTREAM_AUDIO);
@@ -46,11 +59,13 @@ public class InstreamAudioActivity extends BaseActivity  {
             public void onAdFailedToLoad(@Nullable JioAdView jioAdView, @Nullable JioAdError jioAdError) {
                 dialog.dismiss();
                 Toast.makeText(InstreamAudioActivity.this, "onAdFailedToLoad : "+jioAdError.getErrorDescription(), Toast.LENGTH_SHORT).show();
+                resumeVideo();
             }
 
             @Override
             public void onAdClosed(@Nullable JioAdView jioAdView, boolean b, boolean b1) {
                 Toast.makeText(InstreamAudioActivity.this, "onAdClosed : ", Toast.LENGTH_SHORT).show();
+                resumeVideo();
             }
 
             @Override
