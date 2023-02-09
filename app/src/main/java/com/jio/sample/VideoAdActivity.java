@@ -24,14 +24,10 @@ public class VideoAdActivity extends BaseActivity {
 
     private ActivityVideoBinding binding;
     private JioAdView jioAdView=null;
-    private VideoPlayer videoPlayer = null;
-    private Handler handler = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        handler = new Handler();
 
         JioAds.Companion.getInstance().setLogLevel(JioAds.LogLevel.DEBUG);
 
@@ -45,25 +41,10 @@ public class VideoAdActivity extends BaseActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        videoPlayer = new VideoPlayer(this, binding.videoView);
-
-        handler.postDelayed(this::videoAd, SHOW_AD_AFTER_MS);
-    }
-
-    @Override
-    protected void onPostCreate(@androidx.annotation.Nullable Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        videoPlayer.start();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        videoPlayer.stop();
+        videoAd();
     }
 
     private void videoAd() {
-        videoPlayer.pause();
         dialog.show();
         jioAdView = new JioAdView (this,"ocl0xur8",
         JioAdView.AD_TYPE.INSTREAM_VIDEO);
@@ -73,7 +54,6 @@ public class VideoAdActivity extends BaseActivity {
             public void onAdFailedToLoad(@Nullable JioAdView jioAdView, @Nullable JioAdError jioAdError) {
                 dialog.dismiss();
                 Toast.makeText(VideoAdActivity.this, "onAdFailedToLoad : "+jioAdError.getErrorDescription(), Toast.LENGTH_SHORT).show();
-                videoPlayer.start();
             }
 
             @Override
